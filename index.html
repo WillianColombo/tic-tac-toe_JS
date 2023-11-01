@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página Inicial - Tic-Tac-Toe</title>
+    <script src="/index.js" defer></script>
+    <link rel="stylesheet" href="/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Edu+TAS+Beginner&display=swap&family=Oswald" rel="stylesheet">
+</head>
+
+<body>
+    <main>
+        <form id="names-player">
+            <div id="player-1">
+                <h3>X Player</h3>
+                <div class="input">
+                    <label for="name-1">Enter your name:</label>
+                    <input type="text" id="name-1" name="name-1" placeholder="Ex: Player1" required>
+                </div>
+            </div>
+            <button type="submit" id="play">Play</button>
+            <div id="player-2">
+                <h3>O Player</h3>
+                <div class="input">
+                    <label for="name-2">Enter your name:</label>
+                    <input type="text" id="name-2" name="name-2" placeholder="Ex: Player2" required>
+                </div>
+            </div>
+        </form>
+
+        <section id="main">
+            <div id="div-player-1"></div>
+            <div id="board">
+                <button id="key1" data-value="1" class="keys" disabled></button>
+                <button id="key2" data-value="2" class="keys" disabled></button>
+                <button id="key3" data-value="3" class="keys" disabled></button>
+                <button id="key4" data-value="4" class="keys" disabled></button>
+                <button id="key5" data-value="5" class="keys" disabled></button>
+                <button id="key6" data-value="6" class="keys" disabled></button>
+                <button id="key7" data-value="7" class="keys" disabled></button>
+                <button id="key8" data-value="8" class="keys" disabled></button>
+                <button id="key9" data-value="9" class="keys" disabled></button>
+            </div>
+            <div id="div-player-2"></div>
+        </section>
+        <section id="result"></section>
+    </main>
+</body>
+
+</html>

@@ -1,0 +1,199 @@
+body{
+    background-color: #615375;
+    margin: 0;
+
+    font-family: 'Oswald';
+}
+
+
+
+
+/*  Header  */
+#names-player{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px 25px;
+    
+    background-color: #ad98cb;
+    border-bottom: 5px solid #7c59ac;
+}
+
+
+/*  Botão de play/restart   */
+#play{
+    font-family: 'Oswald';
+    font-size: 25px;
+    font-weight: bold;
+
+    border: 4px solid #d1313d;
+    border-radius: 20px;
+
+    background-color: #e5625c;
+    color: black;
+
+    width: 90px;
+    height: 50px;
+}
+#play:hover{
+    width: 95px;
+    height: 55px;
+    transition-delay: 0.1s;
+
+    background-color: #d1313d;
+    color: white;
+}
+
+
+
+/*  Div players */
+#player-1, #player-2{
+    border: 4px solid #d1313d;
+    border-radius: 5px;
+    background-color: #e5625c;
+
+    padding: 10px;
+    height: 60px;
+    display: flex;
+}
+input{
+    background-color: #d1313d;
+    color: white;
+    font-size: 15px;
+    font-family: 'Oswald';
+    padding: 2px;
+    border: 1px solid black;
+    border-radius: 5px;
+    
+}
+input::placeholder{
+    color: white;
+    font-family: 'Oswald';
+}
+input:focus{
+    border: 1px solid white;
+}
+input:hover{
+    border: 2px solid;
+}
+.input{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+h3{
+    border-right: 3px solid;
+    margin: auto 10px auto 0;
+    padding-right: 10px;
+
+    font-family: 'Edu TAS Beginner', cursive;
+}
+
+
+/*  Seção tabuleiro    */
+#main{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 90%;
+    margin: 0 auto 0 auto;
+}
+
+#board{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-content: space-between;
+    margin: 30px auto;
+    padding: 0px;
+    height: 490px;
+    width: 490px;
+
+    background-color: #d1313d;
+}
+
+.keys{
+    height: 150px;
+    width: 150px;
+    
+    background-color: #615375;
+    color: black;
+    border: 0;
+
+    font-family: 'Edu TAS Beginner', cursive;
+    font-size: 70px;
+    font-weight: bold;
+}
+.keys:hover{
+    border: 2px solid;
+    
+    background-color: #e5625c; 
+}
+
+
+
+/*  Mensagens de turno  */
+#div-player-1, #div-player-2{
+    width: 150px;
+    height: 150px;
+}
+.turns{
+    border: 5px solid #d1313d;
+    border-radius: 10px;
+
+    background-color: #e5625c;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 20px;
+
+}
+.turns > span{
+    font-size: 50px;
+    font-family: 'Edu TAS Beginner', cursive;
+    font-weight: bold;
+}
+
+
+
+
+/*  Mensagem do resultado   */
+.result-tie{
+    height: 70px;
+    width: 530px;
+    margin: 0 auto;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    border: 5px solid #d1313d;
+    border-radius: 10px;
+
+    background-color: #e5625c;
+
+    font-size: 30px;
+    font-family: "Oswald";
+    font-weight: bold;
+}
+.result-win{
+    height: 70px;
+    width: 530px;
+    margin: 0 auto;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    border: 5px solid #009900;
+    border-radius: 10px;
+
+    background-color: #0dc02c;
+
+    font-size: 30px;
+    font-family: "Oswald";
+    font-weight: bold;
+}
