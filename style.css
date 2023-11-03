@@ -129,6 +129,18 @@ h3{
     
     background-color: #e5625c; 
 }
+.keys-win{
+    height: 150px;
+    width: 150px;
+    
+    background-color: #0dc02c;
+    color: black;
+    border: 0;
+
+    font-family: 'Edu TAS Beginner', cursive;
+    font-size: 70px;
+    font-weight: bold;
+}
 
 
 

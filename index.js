@@ -106,21 +106,32 @@ function removeTurnPlayer2() {
 
 //Função para reiniciar o tabuleir
 function restart() {
+    //Retira as marcações de vitória nos botões
+    document.querySelectorAll('.keys-win').forEach(function (buttons) {
+        buttons.classList = 'keys'
+    })
+
+    //Habilita todos os botões
     enabledBoard()
+
+    //Limpa os símbolos dos botões
     document.querySelectorAll('.keys').forEach(function (buttons) {
         buttons.innerText = ''
     })
 
+    //reseta a board lógica
     board.forEach(function (element) {
         element.char = 'y'
     })
 
+    //Remove a mensagem de turnos
     if (divPlayer1.children.length > 0) {
         removeTurnPlayer1()
     } else if(divPlayer2.children.length > 0){
         removeTurnPlayer2()
     }
 
+    //Remove a mensagem de resultado
     if (document.getElementById('result').children.length > 0) {
         const p = document.getElementById('text-result')
         p.remove()
@@ -147,7 +158,7 @@ function addChar(turn, button) {
     }
 }
 
-//Verifica condição para vitória 
+//Chama função para vereficar vitória a cada key acionada
 function checkWin(i, key) {
     const index = key.dataset.value
     const char = board[index - 1].char
@@ -156,46 +167,46 @@ function checkWin(i, key) {
     } else {
         switch (index) {
             case '1':
-                test_1_2_3(char)
-                test_1_4_7(char)
-                test_1_5_9(char)
+                testWin(1, 2, 3, char)
+                testWin(1, 4, 7, char)
+                testWin(1, 5, 9, char)
                 break;
             case '2':
-                test_1_2_3(char)
-                test_2_5_8(char)
+                testWin(1, 2, 3, char)
+                testWin(2, 5, 8, char)
                 break;
             case '3':
-                test_1_2_3(char)
-                test_3_6_9(char)
-                test_3_5_7(char)
+                testWin(1, 2, 3, char)
+                testWin(3, 6, 9, char)
+                testWin(3, 5, 7, char)
                 break;
             case '4':
-                test_1_4_7(char)
-                test_4_5_6(char)
+                testWin(1, 4, 7, char)
+                testWin(4, 5, 6, char)
                 break;
             case '5':
-                test_4_5_6(char)
-                test_2_5_8(char)
-                test_1_5_9(char)
-                test_3_5_7(char)
+                testWin(4, 5, 6, char)
+                testWin(2, 5, 8, char)
+                testWin(1, 5, 9, char)
+                testWin(3, 5, 7, char)
                 break;
             case '6':
-                test_4_5_6(char)
-                test_3_6_9(char)
+                testWin(4, 5 ,6, char)
+                testWin(3, 6, 9, char)
                 break;
             case '7':
-                test_7_8_9(char)
-                test_1_4_7(char)
-                test_3_5_7(char)
+                testWin(7, 8, 9, char)
+                testWin(1, 4, 7, char)
+                testWin(3, 5, 7, char)
                 break;
             case '8':
-                test_7_8_9(char)
-                test_2_5_8(char)
+                testWin(7, 8, 9, char)
+                testWin(2, 5, 8, char)
                 break;
             case '9':
-                test_7_8_9(char)
-                test_3_6_9(char)
-                test_1_5_9(char)
+                testWin(7, 8, 9, char)
+                testWin(3, 6, 9, char)
+                testWin(1, 5, 9, char)
                 break;
         }
         if (i === 9) {
@@ -204,50 +215,14 @@ function checkWin(i, key) {
     }
 }
 
-//---------------------------------------------------------
-//Funções para teste de condição para vitória
-function test_1_2_3(char) {
-    if (board[0].char === char && board[1].char === char && board[2].char === char) {
-        resultWin(char)
-    } else return
-}
-function test_4_5_6(char) {
-    if (board[3].char === char && board[4].char === char && board[5].char === char) {
-        resultWin(char)
-    } else return
-}
-function test_7_8_9(char) {
-    if (board[6].char === char && board[7].char === char && board[8].char === char) {
-        resultWin(char)
-    } else return
-}
-function test_1_4_7(char) {
-    if (board[0].char === char && board[3].char === char && board[6].char === char) {
-        resultWin(char)
-    } else return
-}
-function test_2_5_8(char) {
-    if (board[1].char === char && board[4].char === char && board[7].char === char) {
-        resultWin(char)
-    } else return
-}
-function test_3_6_9(char) {
-    if (board[2].char === char && board[5].char === char && board[8].char === char) {
-        resultWin(char)
-    } else return
-}
-function test_1_5_9(char) {
-    if (board[0].char === char && board[4].char === char && board[8].char === char) {
-        resultWin(char)
-    } else return
-}
-function test_3_5_7(char) {
-    if (board[2].char === char && board[4].char === char && board[6].char === char) {
-        resultWin(char)
-    } else return
-}
-//--------------------------------------------------------------
 
+//Funções para teste de condição para vitória
+function testWin(x, y, z, char){
+    if (board[x - 1].char === char && board[y - 1].char === char && board[z - 1].char === char) {
+        regionForWin(x, y, z)
+        resultWin(char)
+    } else return
+}
 
 //Função vitória
 let win = false
@@ -275,6 +250,16 @@ function resultWin(char) {
     win = true
 }
 
+//Função para destacar as keys que incidiram na vitória
+function regionForWin(x, y, z){
+    const keyX = document.getElementById('key' + x)
+    const keyY = document.getElementById('key' + y)
+    const keyZ = document.getElementById('key' + z)
+    keyX.classList = 'keys-win'
+    keyY.classList = 'keys-win'
+    keyZ.classList = 'keys-win'
+}
+
 //Função empate
 function resultTie(char) {
     if (win === false) {
@@ -290,6 +275,7 @@ function resultTie(char) {
         }
     }
 }
+
 
 
 
